@@ -1,0 +1,13 @@
+{
+  "title": "Кредитний калькулятор",
+  "car_price": "Ціна автомобіля",
+  "first_payment": "Перший внесок",
+  "loan_term": "Термін кредиту",
+  "month": "Місяці",
+  "estimated_monthly_payment": "Орієнтовний щомісячний платіж",
+  "payment_details": "Деталі платежу",
+  "interest_rate": "Відсоткова ставка",
+  "total_loan_amount": "Загальна сума кредиту",
+  "total_interest": "Загальний відсоток",
+  "total_car_price": "Загальна ціна автомобіля"
+}

@@ -1,0 +1,14 @@
+{
+  "title": "Конфігуратор автомобіля",
+  "price": "Ціна",
+  "type": "Коплектація",
+  "specifications": "Специфікація",
+  "engine": "Двигун",
+  "transmission": "Трансмісія",
+  "horsepower": "Кінські сили",
+  "drivetrain": "Привід",
+  "torque": "Крутний момент",
+  "fuel_economy": "Витрата палива",
+  "credit_calculator": "Кредитний Калькулятор",
+  "add_accessories": "Додати Аксесуари"
+}

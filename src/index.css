@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-brand: #4b2e2b;
+  --color-brand-light: #c08552;
+  --bg-brand: #fff8f0;
+  --text-brand: #4b2e2b;
+
+  --cta-bg-default: #fff8f0;
+  --cta-border-default: #c08552;
+  --cta-h-bg-default: #f3e0d1;
+  --cta-h-border-default: #8c5a3c;
+
+  --cta-bg-primary: #c08552;
+  --cta-border-primary: #8c5a3c;
+  --cta-h-bg-primary: #8c5a3c;
+  --cta-h-border-primary: #4b2e2b;
+
+  --cta-bg-secondary: #8c5a3c;
+  --cta-border-secondary: #4b2e2b;
+  --cta-h-bg-secondary: #4b2e2b;
+  --cta-h-border-secondary: #c08552;
+
+  --cta-bg-disabled: #fff8f0;
+  --cta-border-disabled: #c08552;
+  --cta-h-bg-disabled: #fff1e4;
+  --cta-h-border-disabled: #c08552;
+
+  --cta-bg-tab: #4b2e2b;
+  --cta-border-tab: #8c5a3c;
+  --cta-h-bg-tab: #7b5a54;
+  --cta-h-border-tab: #7b5a54;
+
+  --cta-bg-link: transparent;
+  --cta-border-link: transparent;
+  --cta-h-bg-link: #fff8f0;
+  --cta-h-border-link: #c08552;
+}
+
+.dark {
+  --color-brand: #8a7650;
+  --color-brand-light: #8e977d;
+  --bg-brand: #ece7d1;
+  --text-brand: #4b3826;
+
+  --cta-bg-default: #ece7d1;
+  --cta-border-default: #dbcea5;
+  --cta-h-bg-default: #f4efe1;
+  --cta-h-border-default: #8e977d;
+
+  --cta-bg-primary: #8a7650;
+  --cta-border-primary: #dbcea5;
+  --cta-h-bg-primary: #a3926f;
+  --cta-h-border-primary: #8e977d;
+
+  --cta-bg-secondary: #8e977d;
+  --cta-border-secondary: #dbcea5;
+  --cta-h-bg-secondary: #ece7d1;
+  --cta-h-border-secondary: #8a7650;
+
+  --cta-bg-disabled: #dbcea5;
+  --cta-border-disabled: #ece7d1;
+  --cta-h-bg-disabled: #ece7d1;
+  --cta-h-border-disabled: #8e977d;
+
+  --cta-bg-tab: #8e977d;
+  --cta-border-tab: #8a7650;
+  --cta-h-bg-tab: #dbd3b9;
+  --cta-h-border-tab: #ece7d1;
+
+  --cta-bg-link: transparent;
+  --cta-border-link: transparent;
+  --cta-h-bg-link: #ece7d1;
+  --cta-h-border-link: #8a7650;
+}

@@ -1,0 +1,10 @@
+{
+  "header": {
+    "home": "Home",
+    "gallery": "Gallery",
+    "configurator": "Configurator",
+    "finance": "Finance",
+    "contact": "Contact"
+  },
+  "footer": {}
+}

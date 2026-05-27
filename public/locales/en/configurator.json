@@ -1,0 +1,14 @@
+{
+  "title": "Car Configurator",
+  "price": "Price",
+  "type": "Type",
+  "specifications": "Specifications",
+  "engine": "Engine",
+  "transmission": "Transmission",
+  "horsepower": "Horsepower",
+  "drivetrain": "Drivetrain",
+  "torque": "Torque",
+  "fuel_economy": "Fuel Economy",
+  "credit_calculator": "Credit Calculator",
+  "add_accessories": "Add Accessories"
+}

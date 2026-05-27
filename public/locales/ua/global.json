@@ -1,0 +1,10 @@
+{
+  "header": {
+    "home": "Головна",
+    "gallery": "Галерея",
+    "configurator": "Конфігуратор",
+    "finance": "Фінанси",
+    "contact": "Контакти"
+  },
+  "footer": {}
+}

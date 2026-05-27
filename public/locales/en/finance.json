@@ -1,0 +1,13 @@
+{
+  "title": "Credit Calculator",
+  "car_price": "Car Price",
+  "first_payment": "First Payment",
+  "loan_term": "Loan Term",
+  "month": "Month",
+  "estimated_monthly_payment": "Estimated Monthly Payment",
+  "payment_details": "Payment Details",
+  "interest_rate": "Interest Rate",
+  "total_loan_amount": "Total Loan Amount",
+  "total_interest": "Total Interest",
+  "total_car_price": "Total Car Price"
+}
