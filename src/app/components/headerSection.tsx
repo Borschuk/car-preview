@@ -5,6 +5,7 @@ import { useState } from "react";
 import { CiSun } from "react-icons/ci";
 import { FiMoon } from "react-icons/fi";
 import { useEffect } from "react";
+import logoUrl from "../../assets/images/logo.svg";
 
 const navItems = [
   { to: "/", label: "Home" },
@@ -20,11 +21,13 @@ const HeaderSection = () => {
     return savedTheme ? JSON.parse(savedTheme) : "light";
   });
 
+  const { t, i18n } = useTranslation("global", { keyPrefix: "header" });
+
   useEffect(() => {
     localStorage.setItem("theme", JSON.stringify(theme));
+    document.documentElement.classList.toggle("dark", theme === "dark");
   }, [theme]);
 
-  const { t, i18n } = useTranslation("global", { keyPrefix: "header" });
   const linkClass = ({ isActive }: { isActive: boolean }) =>
     isActive
       ? "text-brand font-bold "
@@ -36,16 +39,14 @@ const HeaderSection = () => {
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
-    document.documentElement.classList.toggle("dark");
   };
 
   return (
     <header className="flex items-center justify-between p-4 bg-grey-200 bg-[var(--bg-brand)] text-black border-b-1">
       <div>
-        <Link
-          to="/"
-          className="block bg-[url('/src/assets/images/logo.svg')] bg-contain bg-no-repeat w-35.5 h-10"
-        />
+        <Link to="/" className="block">
+          <img src={logoUrl} alt="Car Preview logo" className="w-35.5 h-10" />
+        </Link>
       </div>
       <nav className="flex items-center justify-between p-4 gap-4">
         {navItems.map((item) => {
@@ -55,7 +56,9 @@ const HeaderSection = () => {
               to={item.to}
               title={t(`${item.label.toLowerCase()}`)}
               className={(navData) =>
-                `block mx-2 last:mr-0 before:block before:h-0 before:overflow-hidden before:invisible before:content-[attr(title)] before:font-bold ${linkClass(navData)}`
+                `block mx-2 last:mr-0 before:block before:h-0 before:overflow-hidden before:invisible before:content-[attr(title)] before:font-bold ${linkClass(
+                  navData
+                )}`
               }
             >
               {t(`${item.label.toLowerCase()}`)}

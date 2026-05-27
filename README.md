@@ -1,73 +1,76 @@
-# React + TypeScript + Vite
+# Car Preview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Car Preview is a React pet project for browsing cars, opening a configurator, calculating finance payments, and switching app language/theme.
 
-Currently, two official plugins are available:
+## What is implemented
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Routing with `react-router` (home, gallery, configurator, finance, contact, not-found).
+- Route-level lazy loading for pages to reduce initial bundle size.
+- Light/Dark mode using Tailwind CSS classes and persisted user preference.
+- Internationalization with `i18next` + `react-i18next`:
+  - Languages: English (`en`) and Ukrainian (`ua`)
+  - Namespace-based translations loaded from locale JSON files.
+- Server data fetching with `@tanstack/react-query`:
+  - Cars list query
+  - Car-by-id query
+  - Built-in caching and loading/error handling.
+- Local state management with `zustand` for accessories and total accessories price.
+- Gallery slider with `swiper`.
+- Reusable UI components (`Button`, `PageTitle`, `Loading`, sections, layout).
 
-## React Compiler
+## Tech stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- `React` + `TypeScript`
+- `Vite`
+- `Tailwind CSS`
+- `react-router`
+- `@tanstack/react-query`
+- `zustand`
+- `i18next`, `react-i18next`, `i18next-http-backend`, `i18next-browser-languagedetector`
+- `swiper`
+- `react-icons`
+- `express` + `cors` (local API server)
 
-## Expanding the ESLint configuration
+## Project scripts
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- `npm run dev` - start Vite dev server
+- `npm run server` - start local API server (`server.js`)
+- `npm run build` - type-check and build for production
+- `npm run preview` - preview production build
+- `npm run lint` - run ESLint
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Getting started
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. Install dependencies:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+   ```bash
+   npm install
+   ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Run local API server in one terminal:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+   ```bash
+   npm run server
+   ```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3. Run frontend in another terminal:
+
+   ```bash
+   npm run dev
+   ```
+
+4. Open the app in browser (Vite URL shown in terminal, usually `http://localhost:5173`).
+
+## Main architecture notes
+
+- Router is configured in `src/app/router`.
+- App layout and shared sections are in `src/app/components`.
+- Server request helpers are in `src/app/api`.
+- Client store is in `src/app/store/useDataStore.ts`.
+- i18n initialization is in `src/i18n.ts`.
+
+## Future improvements
+
+- Add unit/integration tests (Vitest + React Testing Library).
+- Add route-level prefetch for better navigation performance.
+- Persist selected accessories per car across sessions.

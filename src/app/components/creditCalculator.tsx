@@ -8,7 +8,7 @@ const Finance = () => {
   const location = useLocation();
   const totalAccessoriesPrice = useDataStore(
     (state) =>
-      state.cars[`car${location.state?.data.id}`]?.totalAccessoriesPrice,
+      state.cars[`car${location.state?.data.id}`]?.totalAccessoriesPrice
   );
   const carPriceFromState =
     +location.state?.data.price + parseFloat(totalAccessoriesPrice || "0");
@@ -165,9 +165,11 @@ const Finance = () => {
             </div>
           </div>
         </div>
-        <div className="w-[30%]">
-          <AccessoriesSection carId={location.state?.data.id} />
-        </div>
+        {location.state?.data.id && (
+          <div className="w-[30%]">
+            <AccessoriesSection carId={location.state?.data.id} />
+          </div>
+        )}
       </div>
     </>
   );

@@ -12,8 +12,10 @@ import { SiSpeedtest } from "react-icons/si";
 import { GiCarWheel } from "react-icons/gi";
 import AccessoriesSection from "./accessoriesSection";
 import useDataStore from "../store/useDataStore";
+import { useState } from "react";
 
 const CarInfo = ({ id }: { id: string }) => {
+  const [isAccessoriesOpen, setIsAccessoriesOpen] = useState(false);
   const { data, isLoading, error } = useQuery<Cars>({
     queryKey: ["cars", id],
     queryFn: () => getCarById(id),
@@ -22,7 +24,7 @@ const CarInfo = ({ id }: { id: string }) => {
   const { t, i18n } = useTranslation("configurator");
 
   const totalAccessoriesPrice = useDataStore(
-    (state) => state.cars[`car${id}`]?.totalAccessoriesPrice,
+    (state) => state.cars[`car${id}`]?.totalAccessoriesPrice
   );
 
   const currentLang: string = i18n.language || "en";
@@ -33,6 +35,10 @@ const CarInfo = ({ id }: { id: string }) => {
       <div className="mt-8 text-center text-red-600">Error loading car</div>
     );
   if (!data) return <div className="mt-8 text-center">Car not found</div>;
+
+  const handleAccessoriesList = () => {
+    setIsAccessoriesOpen((prev) => !prev);
+  };
 
   return (
     <div className="max-w-4xl mx-auto mt-8 rounded-3xl border border-slate-200 bg-white p-8 shadow-lg">
@@ -116,11 +122,11 @@ const CarInfo = ({ id }: { id: string }) => {
             {t("credit_calculator")}
           </Button>
         </Link>
-        <Button type="primary" className="mt-8">
+        <Button type="primary" className="mt-8" onClick={handleAccessoriesList}>
           {t("add_accessories")}
         </Button>
       </div>
-      <AccessoriesSection carId={id} />
+      {isAccessoriesOpen && <AccessoriesSection carId={id} />}
     </div>
   );
 };

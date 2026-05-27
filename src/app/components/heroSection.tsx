@@ -1,12 +1,16 @@
 import { Link } from "react-router";
 import Button from "./button";
 import { useTranslation } from "react-i18next";
+import homeBgUrl from "../../assets/images/home-bg.webp";
 
 const HeroSection = () => {
   const { t } = useTranslation("home");
   return (
     <>
-      <div className="w-full bg-[url(assets/images/home-bg.webp)] bg-cover bg-center">
+      <div
+        className="w-full bg-cover bg-center"
+        style={{ backgroundImage: `url(${homeBgUrl})` }}
+      >
         <div className="pt-125 bg-linear-to-b/srgb from-white/0 to-white/20"></div>
       </div>
       <div className="flex items-center justify-center h-full flex-col max-w-lg mx-auto mt-4">
