@@ -2,6 +2,10 @@
 
 Car Preview is a React pet project for browsing cars, opening a configurator, calculating finance payments, and switching app language/theme.
 
+## Status
+
+In progress
+
 ## What is implemented
 
 - Routing with `react-router` (home, gallery, configurator, finance, contact, not-found).
@@ -18,59 +22,84 @@ Car Preview is a React pet project for browsing cars, opening a configurator, ca
 - Gallery slider with `swiper`.
 - Reusable UI components (`Button`, `PageTitle`, `Loading`, sections, layout).
 
+## Implemented features
+
+- **Routing (`react-router`)**
+  - Home, Gallery, Configurator, Finance, Contact, Not Found routes.
+  - Lazy-loaded pages in `src/app/router/index.tsx`.
+- **Theme**
+  - Light/Dark mode toggle in header.
+  - User preference persisted to `localStorage`.
+- **Localization (`i18next`, `react-i18next`)**
+  - Languages: English (`en`) and Ukrainian (`ua`).
+  - Locale files in `public/locales/en` and `public/locales/ua`.
+- **Data Fetching (`@tanstack/react-query`)**
+  - Cars list and car details queries.
+  - Built-in loading/error states and caching.
+- **State Management (`zustand`)**
+  - Accessories selection by car.
+  - Accessories total price calculations.
+- **UI/UX**
+  - Gallery slider with `swiper`.
+  - Reusable components (`Button`, `PageTitle`, `Loading`, layout sections).
+
 ## Tech stack
 
-- `React` + `TypeScript`
-- `Vite`
-- `Tailwind CSS`
-- `react-router`
-- `@tanstack/react-query`
-- `zustand`
-- `i18next`, `react-i18next`, `i18next-http-backend`, `i18next-browser-languagedetector`
-- `swiper`
-- `react-icons`
-- `express` + `cors` (local API server)
-
-## Project scripts
-
-- `npm run dev` - start Vite dev server
-- `npm run server` - start local API server (`server.js`)
-- `npm run build` - type-check and build for production
-- `npm run preview` - preview production build
-- `npm run lint` - run ESLint
+- React 19 + TypeScript
+- Vite
+- Tailwind CSS
+- React Router
+- TanStack Query
+- Zustand
+- i18next + react-i18next + language detector + HTTP backend
+- Swiper
+- Express + CORS (local API mock server)
 
 ## Getting started
 
-1. Install dependencies:
+### 1) Install dependencies
 
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+```
 
-2. Run local API server in one terminal:
+### 2) Start API server
 
-   ```bash
-   npm run server
-   ```
+```bash
+npm run server
+```
 
-3. Run frontend in another terminal:
+API will be available at `http://localhost:3001`.
 
-   ```bash
-   npm run dev
-   ```
+### 3) Start frontend
 
-4. Open the app in browser (Vite URL shown in terminal, usually `http://localhost:5173`).
+```bash
+npm run dev
+```
 
-## Main architecture notes
+Frontend runs on Vite dev server (usually `http://localhost:5173`).
 
-- Router is configured in `src/app/router`.
-- App layout and shared sections are in `src/app/components`.
-- Server request helpers are in `src/app/api`.
-- Client store is in `src/app/store/useDataStore.ts`.
-- i18n initialization is in `src/i18n.ts`.
+## Scripts
 
-## Future improvements
+- `npm run dev` - start frontend in development mode.
+- `npm run server` - start Express API server.
+- `npm run build` - run TypeScript build and create production bundle.
+- `npm run preview` - preview production build locally.
+- `npm run lint` - run ESLint.
 
-- Add unit/integration tests (Vitest + React Testing Library).
-- Add route-level prefetch for better navigation performance.
-- Persist selected accessories per car across sessions.
+## Project structure
+
+- `src/app/router` - route definitions and app layout.
+- `src/app/components` - reusable UI blocks and feature sections.
+- `src/app/api` - API request helpers.
+- `src/app/store/useDataStore.ts` - Zustand store.
+- `src/i18n.ts` - i18n initialization.
+- `public/locales` - translation JSON files.
+- `server.js` - local Express API.
+
+## Usage example
+
+1. Open `/configurator` and choose a car.
+2. Open a car details page and add accessories.
+3. Navigate to `/finance` to see credit calculation based on selected car and accessories.
+4. Switch language in the header (`EN` / `UA`) and toggle theme.
