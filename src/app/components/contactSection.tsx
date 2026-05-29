@@ -4,7 +4,7 @@ const ContactSection = () => {
   const { t } = useTranslation("contacts");
   return (
     <>
-      <div className="max-w-2xl mx-auto mt-16 p-4 bg-white shadow-lg rounded-lg">
+      <div className="mx-4 mt-8 max-w-2xl rounded-lg bg-white p-4 shadow-lg sm:mx-auto sm:mt-12 md:mt-16 sm:p-6">
         <p className="text-gray-600 mb-6">{t("description")}</p>
         <div className="space-y-4">
           <div>

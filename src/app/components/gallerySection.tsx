@@ -38,10 +38,12 @@ const GallerySection = () => {
 
   return (
     <>
-      <div className="text-center pt-16 flex justify-center gap-8">
+      <div className="flex justify-center gap-4 px-4 pt-8 sm:gap-8 sm:pt-12 md:pt-16">
         <Button
           type="tab"
-          className={spaceAspect === "interior" ? "border-b-3 " : ""}
+          className={`px-3 py-3 text-sm sm:px-4 sm:text-base ${
+            spaceAspect === "interior" ? "border-b-3" : ""
+          }`}
           onClick={() => setSpaceAspect("interior")}
         >
           {t("interior")}
@@ -49,36 +51,62 @@ const GallerySection = () => {
 
         <Button
           type="tab"
-          className={spaceAspect === "exterior" ? "border-b-3" : ""}
+          className={`px-3 py-3 text-sm sm:px-4 sm:text-base ${
+            spaceAspect === "exterior" ? "border-b-3" : ""
+          }`}
           onClick={() => setSpaceAspect("exterior")}
         >
           {t("exterior")}
         </Button>
       </div>
-      <div className="w-200 mt-8 m-auto">
+      <div className="gallery-swiper mx-auto mt-6 w-full max-w-4xl px-4 sm:mt-8">
         <Swiper
-          spaceBetween={50}
+          spaceBetween={24}
           slidesPerView={1}
           modules={[Navigation]}
           className="mySwiper"
           navigation
         >
           <SwiperSlide>
-            <img src={galleryImages[spaceAspect][0]} alt="car type 1" />
-            <p className="text-center mt-4">{t(`${spaceAspect}_des_1`)}</p>
+            <img
+              src={galleryImages[spaceAspect][0]}
+              alt="car type 1"
+              className="mx-auto h-auto max-h-[50vh] w-full object-contain sm:max-h-[60vh]"
+            />
+            <p className="mt-4 px-2 text-center text-sm sm:text-base">
+              {t(`${spaceAspect}_des_1`)}
+            </p>
           </SwiperSlide>
           <SwiperSlide>
-            <img src={galleryImages[spaceAspect][1]} alt="car type 2" />
-            <p className="text-center mt-4">{t(`${spaceAspect}_des_2`)}</p>
+            <img
+              src={galleryImages[spaceAspect][1]}
+              alt="car type 2"
+              className="mx-auto h-auto max-h-[50vh] w-full object-contain sm:max-h-[60vh]"
+            />
+            <p className="mt-4 px-2 text-center text-sm sm:text-base">
+              {t(`${spaceAspect}_des_2`)}
+            </p>
           </SwiperSlide>
           <SwiperSlide>
-            <img src={galleryImages[spaceAspect][2]} alt="car type 3" />
-            <p className="text-center mt-4">{t(`${spaceAspect}_des_3`)}</p>
+            <img
+              src={galleryImages[spaceAspect][2]}
+              alt="car type 3"
+              className="mx-auto h-auto max-h-[50vh] w-full object-contain sm:max-h-[60vh]"
+            />
+            <p className="mt-4 px-2 text-center text-sm sm:text-base">
+              {t(`${spaceAspect}_des_3`)}
+            </p>
           </SwiperSlide>
 
           <SwiperSlide>
-            <img src={galleryImages[spaceAspect][3]} alt="car type 4" />
-            <p className="text-center mt-4">{t(`${spaceAspect}_des_4`)}</p>
+            <img
+              src={galleryImages[spaceAspect][3]}
+              alt="car type 4"
+              className="mx-auto h-auto max-h-[50vh] w-full object-contain sm:max-h-[60vh]"
+            />
+            <p className="mt-4 px-2 text-center text-sm sm:text-base">
+              {t(`${spaceAspect}_des_4`)}
+            </p>
           </SwiperSlide>
         </Swiper>
       </div>

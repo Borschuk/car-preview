@@ -41,12 +41,12 @@ const CarInfo = ({ id }: { id: string }) => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto mt-8 rounded-3xl border border-slate-200 bg-white p-8 shadow-lg">
+    <div className="mx-4 mt-6 max-w-4xl rounded-2xl border border-slate-200 bg-white p-4 shadow-lg sm:mx-auto sm:mt-8 sm:rounded-3xl sm:p-6 md:p-8">
       <div
-        className="bg-contain min-h-112.5 bg-no-repeat bg-center"
+        className="min-h-48 bg-contain bg-center bg-no-repeat sm:min-h-64 md:min-h-80 lg:min-h-112.5"
         style={{ backgroundImage: `url(${data.image})` }}
-      ></div>
-      <h2 className="text-3xl font-bold mb-2">{data.name}</h2>
+      />
+      <h2 className="mb-2 text-2xl font-bold sm:text-3xl">{data.name}</h2>
       <p className="text-slate-600 mb-6">{data.describe[currentLang]}</p>
 
       <div className="grid gap-6 sm:grid-cols-2 mb-8">
@@ -113,16 +113,21 @@ const CarInfo = ({ id }: { id: string }) => {
           </div>
         </div>
       </div>
-      <div className="flex gap-2">
+      <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-2">
         <Link
           to="/finance"
           state={{ data: { price: data.price, name: data.name, id: data.id } }}
+          className="w-full sm:w-auto"
         >
-          <Button type="primary" className="mt-8">
+          <Button type="primary" className="w-full sm:w-auto">
             {t("credit_calculator")}
           </Button>
         </Link>
-        <Button type="primary" className="mt-8" onClick={handleAccessoriesList}>
+        <Button
+          type="primary"
+          className="w-full sm:w-auto"
+          onClick={handleAccessoriesList}
+        >
           {t("add_accessories")}
         </Button>
       </div>

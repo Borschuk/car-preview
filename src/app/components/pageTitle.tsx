@@ -7,7 +7,11 @@ const PageTitle = ({
 }) => {
   return (
     <>
-      <h1 className={`text-3xl font-bold text-center pt-16 ${className || ""}`}>
+      <h1
+        className={`px-4 pt-8 text-center text-2xl font-bold sm:pt-12 sm:text-3xl md:pt-16 ${
+          className || ""
+        }`}
+      >
         {children}
       </h1>
     </>

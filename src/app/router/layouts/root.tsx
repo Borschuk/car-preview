@@ -9,7 +9,7 @@ const root = () => {
     <>
       <ThemeProvider>
         <HeaderSection />
-        <main className="bg-[var(--bg-brand)] pb-16 min-h-screen">
+        <main className="min-h-screen overflow-x-hidden bg-[var(--bg-brand)] pb-10 sm:pb-16">
           <Outlet />
         </main>
         <FooterSection />

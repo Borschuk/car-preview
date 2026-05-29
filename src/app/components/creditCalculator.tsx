@@ -44,13 +44,13 @@ const Finance = () => {
 
   return (
     <>
-      <div className="flex gap-2 justify-center">
-        <div className="w-[50%]">
+      <div className="flex flex-col gap-6 px-4 lg:flex-row lg:justify-center lg:gap-8 lg:px-6">
+        <div className="w-full lg:w-1/2 lg:max-w-xl">
           <div className="max-w-md mx-auto mt-8 p-4 bg-white shadow-lg rounded-lg">
             {carPriceFromState ? (
-              <div className="text-lg font-bold flex justify-between gap-2.5">
-                <span>{carNameFromState}</span>
-                <span>${carPriceFromState}</span>
+              <div className="flex flex-wrap items-baseline justify-between gap-2 text-base font-bold sm:text-lg">
+                <span className="min-w-0">{carNameFromState}</span>
+                <span className="shrink-0">${carPriceFromState}</span>
               </div>
             ) : (
               <div>
@@ -86,7 +86,7 @@ const Finance = () => {
               value={firstPayment}
               onChange={(e) => setFirstPayment(parseInt(e.target.value))}
             />
-            <div className="flex justify-between text-sm text-gray-600 mt-2">
+            <div className="mt-2 flex flex-wrap justify-between gap-x-1 gap-y-1 text-xs text-gray-600 sm:text-sm">
               <span>20%</span>
               <span>30%</span>
               <span>40%</span>
@@ -112,7 +112,7 @@ const Finance = () => {
               value={loanTerm}
               onChange={(e) => setLoanTerm(parseInt(e.target.value))}
             />
-            <div className="flex justify-between text-sm text-gray-600 mt-2">
+            <div className="mt-2 flex flex-wrap justify-between gap-x-1 gap-y-1 text-xs text-gray-600 sm:text-sm">
               <span>12</span>
               <span>24</span>
               <span>36</span>
@@ -133,7 +133,7 @@ const Finance = () => {
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold text-center mt-16">
+            <h2 className="mt-10 text-center text-xl font-bold sm:mt-16 sm:text-2xl">
               {t("payment_details")}
             </h2>
 
@@ -166,7 +166,7 @@ const Finance = () => {
           </div>
         </div>
         {location.state?.data.id && (
-          <div className="w-[30%]">
+          <div className="w-full lg:w-1/3 lg:max-w-md">
             <AccessoriesSection carId={location.state?.data.id} />
           </div>
         )}

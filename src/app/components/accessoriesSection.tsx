@@ -22,14 +22,19 @@ const AccessoriesSection = ({ carId }: { carId: string }) => {
         {accessories?.map((accessory) => (
           <div
             key={accessory.id}
-            className="flex gap-2 border items-center p-2 w-full justify-between"
+            className="flex flex-col gap-3 border p-3 sm:flex-row sm:items-center sm:justify-between sm:gap-2 sm:p-2"
           >
-            <span>{accessory.nameAcc}</span>
-            <span>{accessory.price}</span>
-            <span>{accessory.description}</span>
+            <div className="min-w-0 flex-1 space-y-1">
+              <p className="font-semibold text-gray-900">{accessory.nameAcc}</p>
+              <p className="text-sm text-gray-600">{accessory.description}</p>
+              <p className="text-sm font-medium text-brand">
+                {accessory.price}
+              </p>
+            </div>
             {!accessory.added && (
               <Button
                 type="primary"
+                className="w-full shrink-0 sm:w-auto"
                 onClick={() => addAccessory(storeId, accessory.id)}
               >
                 Add
@@ -38,6 +43,7 @@ const AccessoriesSection = ({ carId }: { carId: string }) => {
             {accessory.added && (
               <Button
                 type="secondary"
+                className="w-full shrink-0 sm:w-auto"
                 onClick={() => removeAccessory(storeId, accessory.id)}
               >
                 Remove

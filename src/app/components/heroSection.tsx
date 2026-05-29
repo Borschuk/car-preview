@@ -8,21 +8,26 @@ const HeroSection = () => {
   return (
     <>
       <div
-        className="w-full bg-cover bg-center"
+        className="w-full bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${homeBgUrl})` }}
       >
-        <div className="pt-125 bg-linear-to-b/srgb from-white/0 to-white/20"></div>
+        <div className="pt-48 bg-linear-to-b/srgb from-white/0 to-white/20 sm:pt-80 md:pt-125" />
       </div>
-      <div className="flex items-center justify-center h-full flex-col max-w-lg mx-auto mt-4">
-        <h1 className="text-4xl font-bold text-black-500 text-center">
+      <div className="mx-auto mt-4 flex h-full max-w-lg flex-col items-center justify-center px-4 pb-8 sm:px-6">
+        <h1 className="text-center text-2xl font-bold text-black-500 sm:text-3xl md:text-4xl">
           {t("hero_title")}
         </h1>
-        <p className="text-lg text-gray-700 mt-4 text-center">
+        <p className="mt-4 text-center text-base text-gray-700 sm:text-lg">
           {t("hero_description")}
         </p>
-        <div className="mt-6">
-          <Link to="/configurator">
-            <Button type="primary">{t("configure_button")}</Button>
+        <div className="mt-6 w-full sm:w-auto">
+          <Link
+            to="/configurator"
+            className="block w-full sm:inline-block sm:w-auto"
+          >
+            <Button type="primary" className="w-full sm:w-auto">
+              {t("configure_button")}
+            </Button>
           </Link>
         </div>
       </div>

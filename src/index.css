@@ -2,6 +2,16 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@layer base {
+  html {
+    overflow-x: hidden;
+  }
+
+  body {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
 @theme {
   --color-brand: #4b2e2b;
   --color-brand-light: #c08552;
@@ -74,4 +84,23 @@
   --cta-border-link: transparent;
   --cta-h-bg-link: #ece7d1;
   --cta-h-border-link: #8a7650;
+}
+
+/* Gallery swiper: smaller nav buttons on mobile */
+.gallery-swiper .swiper-button-next,
+.gallery-swiper .swiper-button-prev {
+  width: 2rem;
+  height: 2rem;
+}
+
+.gallery-swiper .swiper-button-next::after,
+.gallery-swiper .swiper-button-prev::after {
+  font-size: 1.25rem;
+}
+
+@media (max-width: 640px) {
+  .gallery-swiper .swiper-button-next,
+  .gallery-swiper .swiper-button-prev {
+    display: none;
+  }
 }

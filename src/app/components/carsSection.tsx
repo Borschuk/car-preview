@@ -14,7 +14,7 @@ const CarsSection = () => {
   const currentLang: string = i18n.language || "en";
 
   return (
-    <>
+    <section className="px-2 sm:px-4">
       {data?.map((car) => (
         <CarItem
           key={car.id}
@@ -24,7 +24,7 @@ const CarsSection = () => {
           name={car.name}
         />
       ))}
-    </>
+    </section>
   );
 };
 
